@@ -77,12 +77,12 @@
 
 // Path of Flesh's blade
 /obj/item/melee/sickly_blade/flesh
-	name = "кровавый Клинок"
+	name = "кровавый клинок"
 	desc = "Плотоядное существо в виде серповидного клинка. \
 		Будьте осторожны, ведь оно готово поделиться своими страданиями с каждой своей жертвой."
 	icon_state = "flesh_blade"
 	inhand_icon_state = "flesh_blade"
-	after_use_message = "Судья услышал ваш зов..."
+	after_use_message = "Маршал услышал ваш зов..."
 
 // Path of Void's blade
 /obj/item/melee/sickly_blade/void
