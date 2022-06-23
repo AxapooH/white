@@ -407,7 +407,7 @@
 	if(into_hands)
 		user.visible_message(span_notice("[user] дал леценец прямо в руку [A].") , span_notice("Вы получили леденец от [A].") , span_hear("Вы услышали щелчок."))
 	else
-		user.visible_message(span_notice("[user] произвел леденец.") , span_notice(Вы сделали леденец.") , span_hear("Вы услышали щелчок."))
+		user.visible_message(span_notice("[user] произвел леденец.") , span_notice("Вы сделали леденец.") , span_hear("Вы услышали щелчок."))
 
 	playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
 	return TRUE
