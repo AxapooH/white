@@ -158,7 +158,7 @@
 
 /obj/item/borg/upgrade/soh
 	name = "безразмерная сумка для руды"
-	desc = "снимает ограничение емкости для Рудной Сумки."
+	desc = "Снимает ограничение емкости для Рудной Сумки."
 	icon_state = "cyborg_upgrade3"
 	require_module = TRUE
 	module_type = list(/obj/item/robot_module/miner)
@@ -186,7 +186,7 @@
 
 /obj/item/borg/upgrade/tboh
 	name = "безразмерный мешок для мусора"
-	desc = "снимает ограничение емкости для Мусорного Мешка."
+	desc = "Снимает ограничение емкости для Мусорного Мешка."
 	icon_state = "cyborg_upgrade3"
 	require_module = TRUE
 	module_type = list(/obj/item/robot_module/janitor)
@@ -214,7 +214,7 @@
 
 /obj/item/borg/upgrade/amop
 	name = "экспериментальная швабра"
-	desc = "заменяет швабру на продвинутую, при активации та начинает со временем собирать влагу из воздуха."
+	desc = "Заменяет швабру на продвинутую, при активации та начинает со временем собирать влагу из воздуха."
 	icon_state = "cyborg_upgrade3"
 	require_module = TRUE
 	module_type = list(/obj/item/robot_module/janitor)
@@ -512,7 +512,7 @@
 
 /obj/item/borg/upgrade/processor
 	name = "хирургический процессор"
-	desc = "после синхронизации с Операционный Компьютером позволяет проводить все операции которые были загружены в него"
+	desc = "После синхронизации с Операционный Компьютером позволяет проводить все операции которые были загружены в него"
 	icon_state = "cyborg_upgrade3"
 	require_module = TRUE
 	module_type = list(/obj/item/robot_module/medical, /obj/item/robot_module/syndicate_medical)
@@ -679,7 +679,7 @@
 		R.module.transform_to(new_module)
 
 /obj/item/borg/upgrade/transform/clown
-	name = "Модуль специализации (Клоун)"
+	name = "модуль специализации (Клоун)"
 	desc = "Модуль специа@#$# HOONK!"
 	icon_state = "cyborg_upgrade3"
 	new_module = /obj/item/robot_module/clown
@@ -713,7 +713,7 @@
 
 /obj/item/borg/upgrade/beaker_app
 	name = "дополнительный манипулятор хим посуды"
-	desc = "если одного недостаточно."
+	desc = "Если одного недостаточно."
 	icon_state = "cyborg_upgrade3"
 	require_module = TRUE
 	module_type = list(/obj/item/robot_module/medical)

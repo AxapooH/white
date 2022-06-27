@@ -103,7 +103,7 @@
 				head.flash2.forceMove(T)
 				head.flash2 = null
 				head = null
-			to_chat(user, span_notice("Вы разобрали оболочку киборга на части."))
+			to_chat(user, span_notice("Я разобрал киборга на части."))
 	else
 		to_chat(user, span_warning("На этом экзоскелете нет запчастей, которые можно снять!"))
 	update_icon()
@@ -142,7 +142,7 @@
 			to_chat(user, span_warning("Батарея, установленная в торсе [src] разряжена!"))
 		return
 
-	to_chat(user, span_notice("Вы [chest.cell ? "заменили [src] [chest.cell.name] на [temp_cell]" : "установили [temp_cell] в [src]"]."))
+	to_chat(user, span_notice("Я [chest.cell ? "заменил [src] [chest.cell.name] на [temp_cell]" : "установил [temp_cell] в [src]"]."))
 	chest.cell = temp_cell
 	return TRUE
 
@@ -154,13 +154,13 @@
 			if (M.use(1))
 				var/obj/item/bot_assembly/ed209/B = new
 				B.forceMove(drop_location())
-				to_chat(user, span_notice("Вы создаете оболочку киборга."))
+				to_chat(user, span_notice("Я создал киборга."))
 				var/holding_this = user.get_inactive_held_item()==src
 				qdel(src)
 				if (holding_this)
 					user.put_in_inactive_hand(B)
 			else
-				to_chat(user, span_warning("Вам нужен один лист железа, чтобы начать строить ED-209!"))
+				to_chat(user, span_warning("Мне нужен один лист железа, чтобы начать строить ED-209!"))
 				return
 	else if(istype(W, /obj/item/bodypart/l_leg/robot))
 		if(l_leg)
@@ -214,7 +214,7 @@
 			chest = CH
 			update_icon()
 		else if(!CH.wired)
-			to_chat(user, span_warning("Сначала нужно сделать проводку!"))
+			to_chat(user, span_warning("Сначала нужно смонтировать проводку!"))
 		else
 			to_chat(user, span_warning("Сначала нужно установить батарею!"))
 
@@ -234,13 +234,13 @@
 			head = HD
 			update_icon()
 		else
-			to_chat(user, span_warning("Сначала нужно установить флешку!"))
+			to_chat(user, span_warning("Сначала нужно установить вспышку!"))
 
 	else if (W.tool_behaviour == TOOL_MULTITOOL)
 		if(check_completion())
 			ui_interact(user)
 		else
-			to_chat(user, span_warning("Вам нужно собрать оболочку киборга, прежде чем проводить отладку!"))
+			to_chat(user, span_warning("Мне нужно собрать оболочку киборга, прежде чем проводить отладку!"))
 
 	else if(istype(W, /obj/item/mmi))
 		var/obj/item/mmi/M = W
@@ -249,7 +249,7 @@
 				to_chat(user, span_warning("Оболочке нужна батарея!"))
 				return
 			if(!isturf(loc))
-				to_chat(user, span_warning("Вы не можете установить [M] внутрь, оболочка киборга должна стоять на земле!"))
+				to_chat(user, span_warning("Поставьте киборга на землю и установите [M] внутрь!"))
 				return
 			if(!M.brain_check(user))
 				return
@@ -257,7 +257,7 @@
 			var/mob/living/brain/B = M.brainmob
 			if(is_banned_from(B.ckey, "Cyborg") || QDELETED(src) || QDELETED(B) || QDELETED(user) || QDELETED(M) || !Adjacent(user))
 				if(!QDELETED(M))
-					to_chat(user, span_warning("Кажется [M.name] не подходит для установки!"))
+					to_chat(user, span_warning("Кажется [M.name] не подходит для установки! Видимо само мироздание не даст вам это сделать..."))
 				return
 			if(!user.temporarilyRemoveItemFromInventory(W))
 				return
@@ -303,9 +303,9 @@
 			B.mind.transfer_to(O)
 
 			if(O.mind && O.mind.special_role)
-				O.mind.store_memory("В роли киборга вы должны следовать своим законам и приказам ИИ. Вы мертвы, вы не помните ничего о прошлом себе, для всех окружающих вы будете считаться мертвым.")
-				to_chat(O, span_userdanger("Вы стали киборгом!"))
-				to_chat(O, span_danger("Вы должны следовать своим законам и приказам ИИ . Вы мертвы, вы не помните ничего о прошлом себе, для всех окружающих вы будете считаться мертвым."))
+				O.mind.store_memory("В роли киборга я должен следовать своим законам и приказам ИИ. Моя личность подавлена, я не помню ничего о прошлом себе, для всех окружающих я буду считаться мертвым.")
+				to_chat(O, span_userdanger("Я стал киборгом!"))
+				to_chat(O, span_danger("Я должны следовать своим законам и приказам ИИ . Моя личность подавлена, я не помню ничего о прошлом себе, для всех окружающих я буду считаться мертвым."))
 
 			SSblackbox.record_feedback("amount", "cyborg_birth", 1)
 			forceMove(O)
@@ -324,10 +324,10 @@
 		var/obj/item/borg/upgrade/ai/M = W
 		if(check_completion())
 			if(!isturf(loc))
-				to_chat(user, span_warning("Вы не можете установить[M], оболочка должна находиться на земле!"))
+				to_chat(user, span_warning("Поставьте киборга на землю и установите [M] внутрь!"))
 				return
 			if(!user.temporarilyRemoveItemFromInventory(M))
-				to_chat(user, span_warning("[M] прилип к твоей руке!"))
+				to_chat(user, span_warning("[M] прилип к моей руке!"))
 				return
 			qdel(M)
 			var/mob/living/silicon/robot/O = new /mob/living/silicon/robot/shell(get_turf(src))
@@ -354,7 +354,7 @@
 				O.set_lockcharge(TRUE)
 
 	else if(istype(W, /obj/item/pen))
-		to_chat(user, span_warning("Вам нужен мультитул чтобы переименовать [src]!"))
+		to_chat(user, span_warning("Мне нужен мультитул, чтобы переименовать [src]!"))
 	else
 		return ..()
 
@@ -364,7 +364,7 @@
 	var/obj/item/held_item = user.get_active_held_item()
 	if(held_item?.tool_behaviour == TOOL_MULTITOOL)
 		return ..()
-	to_chat(user, span_warning("Вам нужен мультитул чтобы совершить отладку!"))
+	to_chat(user, span_warning("Мне нужен мультитул, чтобы совершить отладку!"))
 	return UI_CLOSE
 
 /obj/item/robot_suit/ui_state(mob/user)
