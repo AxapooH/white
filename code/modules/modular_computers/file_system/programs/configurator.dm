@@ -4,8 +4,8 @@
 
 /datum/computer_file/program/computerconfig
 	filename = "compconfig"
-	filedesc = "Hardware Configuration Tool"
-	extended_desc = "This program allows configuration of computer's hardware"
+	filedesc = "Программа настройки оборудования"
+	extended_desc = "Эта программа позволяет вам настраивать работу компонентов внутри устройства."
 	program_icon_state = "generic"
 	unsendable = 1
 	undeletable = 1

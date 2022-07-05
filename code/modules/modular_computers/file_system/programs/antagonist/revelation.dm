@@ -1,9 +1,9 @@
 /datum/computer_file/program/revelation
 	filename = "revelation"
-	filedesc = "Revelation"
+	filedesc = "Откровение"
 	category = PROGRAM_CATEGORY_MISC
 	program_icon_state = "hostile"
-	extended_desc = "This virus can destroy hard drive of system it is executed on. It may be obfuscated to look like another non-malicious program. Once armed, it will destroy the system upon next execution."
+	extended_desc = "Этот вирус уничтожает все данные на устройстве, на котором был запущен. Он может быть обфусцирован (переименован) чтобы выглядить как другая программа. Однажды активированный, он уничтожит систему при следующем открытии программы."
 	size = 13
 	requires_ntnet = FALSE
 	available_on_ntnet = FALSE

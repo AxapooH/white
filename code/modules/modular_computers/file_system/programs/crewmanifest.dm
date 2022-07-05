@@ -1,9 +1,9 @@
 /datum/computer_file/program/crew_manifest
 	filename = "plexagoncrew"
-	filedesc = "Plexagon Crew List"
+	filedesc = "Список экипажа Плексагон"
 	category = PROGRAM_CATEGORY_CREW
 	program_icon_state = "id"
-	extended_desc = "Program for viewing and printing the current crew manifest"
+	extended_desc = "Программа просмотра и печати списка экипажа станции."
 	transfer_access = ACCESS_HEADS
 	requires_ntnet = TRUE
 	size = 4
