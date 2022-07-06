@@ -111,7 +111,7 @@
 		else
 			var/obj/item/aicard/cardhold = AI.loc
 			if(cardhold.flush)
-				data["error"] = "Выполняется дефрагментация" // Я в душе не понимаю что тут имеется в виду под "Промывкой"
+				data["error"] = "Выполняется форматирование." // Я в душе не понимаю что тут имеется в виду под "Промывкой"
 			else
 				data["AI_present"] = TRUE
 				data["name"] = AI.name
