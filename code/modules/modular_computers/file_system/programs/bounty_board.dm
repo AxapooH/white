@@ -92,7 +92,7 @@
 			return TRUE
 		if("apply")
 			if(!current_user)
-				computer.say("Предьявите ID карту пожалуйста.")
+				computer.say("Пожалуйста, предъявите ID карту!")
 				return TRUE
 			if(current_user.account_holder == active_request.owner)
 				playsound(computer, 'white/valtos/sounds/error1.ogg', 20, TRUE)
@@ -111,7 +111,7 @@
 		if("clear")
 			if(current_user)
 				current_user = null
-				computer.say("Сброс аккаунта..")
+				computer.say("Сброс аккаунта.")
 				return TRUE
 		if("deleteRequest")
 			if(!current_user)

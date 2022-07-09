@@ -1,6 +1,6 @@
 /datum/computer_file/program/shipping
 	filename = "shipping"
-	filedesc = "Этикировщик"
+	filedesc = "Этикеровщик"
 	category = PROGRAM_CATEGORY_SUPL
 	program_icon_state = "shipping"
 	extended_desc = "Программный пакет для сканера штрихкодов и минипринтера, позволяющий пда печатать штрих-коды для удобного сканирования и отправки."
