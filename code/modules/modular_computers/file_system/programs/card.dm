@@ -1,6 +1,6 @@
 /datum/computer_file/program/card_mod
 	filename = "plexagonidwriter"
-	filedesc = "Менеджер доступа Плексагон" //Нормального значения слова Plexagon я так и не нашел.
+	filedesc = "Менеджер доступа" //Нормального значения слова Plexagon я так и не нашел.
 	category = PROGRAM_CATEGORY_CREW
 	program_icon_state = "id"
 	extended_desc = "Программный пакет для установки прав и доступа для ID карт."
@@ -157,7 +157,7 @@
 				return TRUE
 			if(minor)
 				if(!(target_id_card.trim?.type in job_templates))
-					to_chat(usr, span_notice("Аппаратная ошибка: У вас нет необходимых прав для изменения данных на ID карте."))
+					to_chat(usr, span_notice("Ошибка доступа: У вас нет необходимых прав для изменения данных на ID карте."))
 					return TRUE
 
 			// Set the new assignment then remove the trim.
@@ -239,7 +239,7 @@
 				return TRUE
 
 			if(!target_id_card.add_access(list(access_type), try_wildcard))
-				to_chat(usr, span_notice("Ошибка ID: ID карта отклонила модификацию доступа."))
+				to_chat(usr, span_notice("Ошибка ID: ID карта блокирует изменение доступа."))
 				LOG_ID_ACCESS_CHANGE(user, target_id_card, "failed to add [SSid_access.get_access_desc(access_type)][try_wildcard ? " with wildcard [try_wildcard]" : ""]")
 				return TRUE
 

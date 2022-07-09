@@ -1,6 +1,6 @@
 /datum/computer_file/program/borg_monitor
 	filename = "siliconnect"
-	filedesc = "Боргконнекс"
+	filedesc = "СилиКоннект"
 	category = PROGRAM_CATEGORY_ROBO
 	ui_header = "borg_mon.gif"
 	program_icon_state = "generic"
@@ -62,11 +62,11 @@
 
 	if(DL_progress == 100)
 		if(!DL_source || !DL_source.modularInterface) //sanity check, in case the borg or their modular tablet poofs somehow
-			loglist = list("Логи системы от юнита [DL_source.name]")
+			loglist = list("Системные логи от юнита [DL_source.name]")
 			loglist += "Ошибка -- загрузка прекращена."
 		else
 			loglist = DL_source.modularInterface.borglog.Copy()
-			loglist.Insert(1,"Логи системы от юнита [DL_source.name]")
+			loglist.Insert(1,"Системные логи от юнита [DL_source.name]")
 		DL_progress = -1
 		DL_source = null
 		for(var/datum/tgui/window in SStgui.open_uis_by_src[REF(src)])
@@ -102,7 +102,7 @@
 			status = R.stat,
 			shell_discon = shell,
 			charge = R.cell ? round(R.cell.percent()) : null,
-			module = R.module ? "[R.module.name]" : "Модуль не обнаружен",
+			module = R.module ? "Модуль [R.module.name]" : "Модуль не обнаружен",
 			upgrades = upgrade,
 			ref = REF(R)
 		)
@@ -130,7 +130,7 @@
 				return
 			if(R.stat == DEAD) //Dead borgs will listen to you no longer
 				to_chat(usr, span_warn("Ошибка: не удалось установить соединение с объектом:[R]"))
-			var/message = stripped_input(usr, message = "Введите сообщение для отправки киборгу.", title = "Сообщение отправлено.")
+			var/message = stripped_input(usr, message = "Введите сообщение для отправки киборгу.", title = "Мессенджер.")
 			if(!message)
 				return
 			to_chat(R, "<br><br><span class='notice'>Сообщение от [ID] -- \"[message]\"</span><br>")
@@ -161,11 +161,11 @@
 
 /datum/computer_file/program/borg_monitor/syndicate
 	filename = "roboverlord"
-	filedesc = "Киборг кинг"
+	filedesc = "Киборг-кинг"
 	category = PROGRAM_CATEGORY_ROBO
 	ui_header = "borg_mon.gif"
 	program_icon_state = "generic"
-	extended_desc = "Эта программа позволяет вести дистанционное наблюдение за киборгами."
+	extended_desc = "Программа позволяющая вести дистанционное наблюдение за киборгами."
 	requires_ntnet = FALSE
 	available_on_ntnet = FALSE
 	available_on_syndinet = TRUE

@@ -1,6 +1,6 @@
 /datum/computer_file/program/status
 	filename = "statusdisplay"
-	filedesc = "Статус станции"
+	filedesc = "Система оповещений"
 	program_icon = "signal"
 	program_icon_state = "generic"
 	requires_ntnet = TRUE

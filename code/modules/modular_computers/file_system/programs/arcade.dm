@@ -37,7 +37,7 @@
 		user?.mind?.adjust_experience(/datum/skill/gaming, 50)
 		sleep(10)
 	else if(player_hp <= 0 || player_mp <= 0)
-		heads_up = "Поражение... почему ты ещё жив, находясь на станции?"
+		heads_up = "Поражение... Станция обречена?"
 		playsound(computer.loc, 'sound/arcade/lose.ogg', 50)
 		game_active = FALSE
 		program_icon_state = "arcade_off"
@@ -57,7 +57,7 @@
 	if(game_active == FALSE)
 		return
 	if (boss_mp <= 5)
-		heads_up = "[boss_mpamt] украл у тебя ману!"
+		heads_up = "[boss_mpamt] похитил у тебя ману!"
 		playsound(computer.loc, 'sound/arcade/steal.ogg', 50, TRUE)
 		player_mp -= boss_mpamt
 		boss_mp += boss_mpamt

@@ -3,7 +3,7 @@
 	filedesc = "Генератор ДДОС Трафика"
 	category = PROGRAM_CATEGORY_MISC
 	program_icon_state = "hostile"
-	extended_desc = "Этот продвинутая программа может выполнять ДДОС атаки против квантовых ретрансляторов сети НТ. Вмешательство в систему, вероятно, будет замечено. Несколько устройств могут запускать эту программу вместе против одного и того же реле для усиления эффекта."
+	extended_desc = "Этот продвинутая программа может выполнять ДДОС атаки против квантовых реле сети НТ. Вмешательство в систему, вероятно, будет замечено системный администратором. Несколько устройств могут запускать эту программу вместе против одного и того же реле для усиления эффекта."
 	size = 20
 	requires_ntnet = TRUE
 	available_on_ntnet = FALSE
@@ -64,7 +64,7 @@
 				target.dos_sources.Add(src)
 				if(SSnetworks.station_network.intrusion_detection_enabled)
 					var/obj/item/computer_hardware/network_card/network_card = computer.all_components[MC_NET]
-					SSnetworks.add_log("ТРЕВОГА - Избыточный трафик на реле [target.uid] исходящее из устройства: [network_card.get_network_tag()]")
+					SSnetworks.add_log("ТРЕВОГА - Зарегистрирована ДДОС атака на реле [target.uid] исходящее из устройства: [network_card.get_network_tag()]")
 					SSnetworks.station_network.intrusion_detection_alarm = TRUE
 			return TRUE
 

@@ -3,7 +3,7 @@
 	filedesc = "Аплинк Контрактора Синдиката"
 	category = PROGRAM_CATEGORY_MISC
 	program_icon_state = "assign"
-	extended_desc = "Стандартная, написанная Синдикатом программа, для работы с важными контрактами в полевых условиях."
+	extended_desc = "Стандартная, написанная Синдикатом программа, для работы с частными контрактами в полевых условиях."
 	size = 10
 	requires_ntnet = 0
 	available_on_ntnet = 0
@@ -73,7 +73,7 @@
 					error = "Либо вы или ваша цель не находитесь в месте высадки, либо у капсулы нет подходящего места для посадки. Освободите место или убедитесь, что вы оба находитесь внутри."
 			else
 				user.playsound_local(user, 'sound/machines/uplinkerror.ogg', 50)
-				error = "Уже произвожу экстракцию... Поместите цель в капсулу. Если капсула была уничтожена, то этот контракт больше невозможно выполнить."
+				error = "Процесс эвакуации цели уже инициирован... Поместите цель в капсулу. Если капсула была уничтожена, то контракт считается терминированным."
 
 			return TRUE
 		if("PRG_contract_abort")
@@ -166,7 +166,7 @@
 
 		for (var/datum/syndicate_contract/contract in traitor_data.contractor_hub.assigned_contracts)
 			if(!contract.contract)
-				stack_trace("Syndiate contract with null contract objective found in [traitor_data.owner]'s contractor hub!")
+				stack_trace("Syndiate contract with null contract objective found in [traitor_data.owner]'s contractor hub!") \\ Я вот про неё
 				contract.status = CONTRACT_STATUS_ABORTED
 				continue
 

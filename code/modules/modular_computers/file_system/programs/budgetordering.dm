@@ -1,6 +1,6 @@
 /datum/computer_file/program/budgetorders
 	filename = "orderapp"
-	filedesc = "НТ СВЗ"
+	filedesc = "Карговито"
 	category = PROGRAM_CATEGORY_SUPL
 	program_icon_state = "request"
 	extended_desc = "Программа для покупкок через сеть внутренних заявок Нанотрейзен. Для оплаты используется счет карго или личный аккаунт использумой ID карты."
@@ -163,8 +163,8 @@
 				computer.say("The supply shuttle is departing.")
 				computer.investigate_log("[key_name(usr)] sent the supply shuttle away.", INVESTIGATE_CARGO)
 			else
-				computer.investigate_log("[key_name(usr)] вызвал шатл карго.", INVESTIGATE_CARGO)
-				computer.say("Шатл карго был вызван и прилетит через [SSshuttle.supply.timeLeft(600)] минут.")
+				computer.investigate_log("[key_name(usr)] вызвал карго шаттл.", INVESTIGATE_CARGO)
+				computer.say("Шаттл карго был вызван и прибудет через [SSshuttle.supply.timeLeft(600)] минут.")
 				SSshuttle.moveShuttle(cargo_shuttle, docking_home, TRUE)
 			. = TRUE
 		if("loan")
@@ -181,8 +181,8 @@
 				return
 			else
 				SSshuttle.shuttle_loan.loan_shuttle()
-				computer.say("Шатл карго был отправлен на ЦК.")
-				computer.investigate_log("[key_name(usr)] предоставил шатл по запросу ЦК.", INVESTIGATE_CARGO)
+				computer.say("Шаттл карго был отправлен на ЦК.")
+				computer.investigate_log("[key_name(usr)] предоставил шаттл по запросу ЦК.", INVESTIGATE_CARGO)
 				log_game("[key_name(usr)] accepted a shuttle loan event.")
 				. = TRUE
 		if("add")

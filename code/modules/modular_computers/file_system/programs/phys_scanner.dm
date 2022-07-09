@@ -3,9 +3,9 @@
 
 /datum/computer_file/program/phys_scanner
 	filename = "phys_scanner"
-	filedesc = "Сканнер здоровья"
+	filedesc = "Анализатор здоровья"
 	category = PROGRAM_CATEGORY_MISC
-	extended_desc = "Эта программа позволяет сканировать здоровье обьекта и выводит его на экран."
+	extended_desc = "Эта программа позволяет сканировать физическое состояние обьекта и выводит его на экран."
 	size = 8
 	usage_flags = PROGRAM_TABLET
 	available_on_ntnet = FALSE
@@ -42,7 +42,7 @@
 			if(!isnull(A.reagents))
 				if(A.reagents.reagent_list.len > 0)
 					var/reagents_length = A.reagents.reagent_list.len
-					last_record = "Найден реагент: [reagents_length] в количестве [reagents_length > 1 ? "s" : ""] юнитов."
+					last_record = "Химический анализ выявил [reagents_length] [reagents_length > 1 ? "реагента" : "реагент"]"
 					for (var/re in A.reagents.reagent_list)
 						last_record += "\t [re]"
 				else

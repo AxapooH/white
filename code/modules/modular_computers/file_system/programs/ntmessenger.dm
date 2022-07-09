@@ -4,7 +4,7 @@
 	category = PROGRAM_CATEGORY_MISC
 	program_icon_state = "command"
 	program_state = PROGRAM_STATE_BACKGROUND
-	extended_desc = "Программа для отправки сообщений между устройствами с помощью старых видов коммуникации."
+	extended_desc = "Программа для отправки сообщений между устройствами с помощью более привычных для персонала видов коммуникации."
 	size = 8
 	usage_flags = PROGRAM_TABLET
 	ui_header = "ntnrc_idle.gif"

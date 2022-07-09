@@ -252,7 +252,7 @@
 ///Tracks all janitor equipment
 /datum/computer_file/program/radar/custodial_locator
 	filename = "custodiallocator"
-	filedesc = "Радар уборщиков"
+	filedesc = "Навигатор уборщика"
 	extended_desc = "Эта программа позволяет вам находить вещи уборщика с помощью радара."
 	requires_ntnet = TRUE
 	transfer_access = list(ACCESS_JANITOR)

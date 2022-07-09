@@ -1,9 +1,9 @@
 /datum/computer_file/program/bounty_board
 	filename = "bountyboard"
-	filedesc = "Доска обьявлений"
+	filedesc = "Доска объявлений"
 	category = PROGRAM_CATEGORY_SUPL
 	program_icon_state = "bountyboard"
-	extended_desc = "Мультиплатформенная сеть для размещения заявок и обьявлений на всей станции, с возможностью оплаты по сети..."
+	extended_desc = "Мультиплатформенное приложение для размещения заявок и объявлений в корпоративной сети станции, с функций бесконтактной оплаты..."
 	requires_ntnet = TRUE
 	size = 10
 	tgui_id = "NtosBountyBoard"

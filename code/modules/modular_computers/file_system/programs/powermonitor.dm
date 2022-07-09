@@ -2,7 +2,7 @@
 
 /datum/computer_file/program/power_monitor
 	filename = "ampcheck"
-	filedesc = "AmpCheck"
+	filedesc = "Мониторинг энергосетей"
 	category = PROGRAM_CATEGORY_ENGI
 	program_icon_state = "power_monitor"
 	extended_desc = "Эта программа подключается к сенсорам станции для просмотра её электрической сети."

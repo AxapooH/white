@@ -3,10 +3,10 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 
 /datum/computer_file/program/job_management
 	filename = "plexagoncore"
-	filedesc = "Ядро кадров Плексагон"
+	filedesc = "Отдел кадров"
 	category = PROGRAM_CATEGORY_CREW
 	program_icon_state = "id"
-	extended_desc = "Эта программа позволяет запрашивать нужных станции специалистов, выделяя их должности.."
+	extended_desc = "Программа менеджемнта рабочих мест с возможностью выбора приоритета среди доступных вакансий."
 	transfer_access = ACCESS_HEADS
 	requires_ntnet = TRUE
 	size = 4

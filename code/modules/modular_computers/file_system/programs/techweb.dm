@@ -193,7 +193,7 @@
 		if(stored_research == SSresearch.science_tech)
 			SSblackbox.record_feedback("associative", "science_techweb_unlock", 1, list("id" = "[id]", "name" = tech_node.display_name, "price" = "[json_encode(price)]", "time" = SQLtime()))
 		if(stored_research.research_node_id(id))
-			computer.say("Успешно изучена технология [tech_node.display_name].")
+			computer.say("[tech_node.display_name] - исследование завершено!")
 			var/logname = "Неизвестный"
 			if(isAI(user))
 				logname = "AI: [user.name]"
@@ -211,7 +211,7 @@
 			stored_research.research_logs = list(list(tech_node.display_name, price["Основные Исследования"], logname, "[get_area(src)] ([computer.x],[computer.y],[computer.z])"))
 			return TRUE
 		else
-			computer.say("Не удалось исследовать: Внутренняя ошибка базы данных!")
+			computer.say("Сбой процесса исследования: Внутренняя ошибка базы данных!")
 			return FALSE
 	computer.say("Недостаточно очков исследования...")
 	return FALSE

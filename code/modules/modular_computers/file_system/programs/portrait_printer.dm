@@ -13,7 +13,7 @@
 	filedesc = "Картины Марлоу Треби"
 	category = PROGRAM_CATEGORY_CREW
 	program_icon_state = "dummy"
-	extended_desc = "Эта программа подключается к художественному сайту сообщества Spinward Sector для просмотра и печати произведений искусства."
+	extended_desc = "Эта программа подключается к художественному сайту сообщества, находящегося в секторе Спинвард, для просмотра и печати произведений искусства."
 	transfer_access = ACCESS_LIBRARY
 	usage_flags = PROGRAM_CONSOLE
 	requires_ntnet = TRUE
