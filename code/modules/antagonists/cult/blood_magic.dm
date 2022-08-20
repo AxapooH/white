@@ -357,7 +357,7 @@
 			source.hand_magic = null
 			source.charges = uses
 			source.desc = source.base_desc
-			source.desc += "<br><b><u>Осталось [charges] [charges > 1 ? "использования" : "использование"]</u></b>."
+			source.desc += "<br><b><u>Осталось [uses] [uses > 1 ? "использования" : "использование"]</u></b>."
 			source.UpdateButtons()
 	return ..()
 
@@ -384,7 +384,7 @@
 		qdel(src)
 	else if(source)
 		source.desc = source.base_desc
-		source.desc += "<br><b><u>Осталось [charges] [charges > 1 ? "использования" : "использование"]</u></b>."
+		source.desc += "<br><b><u>Осталось [uses] [uses > 1 ? "использования" : "использование"]</u></b>."
 		source.UpdateButtons()
 
 //Stun
@@ -401,14 +401,14 @@
 		return
 	if(IS_CULTIST(user))
 		user.visible_message(span_warning("Из руки [user] вырываются вспышки кроваво-красного цвета!"), \
-							span_cultitalic("Я оглушил [L] своим заклинанием!"))
+							span_cultitalic("Я оглушил цель своим заклинанием!"))
 
 		user.mob_light(_range = 3, _color = LIGHT_COLOR_BLOOD_MAGIC, _duration = 0.2 SECONDS)
 
 		if(target.can_block_magic())
 			to_chat(user, span_warning("Узор не подействовал!"))
 		else
-			to_chat(user, span_cultitalic("После ослепительной вспышки [L] падает на землю!"))
+			to_chat(user, span_cultitalic("После ослепительной вспышки моя цель падает на землю!"))
 			target.Paralyze(16 SECONDS)
 			target.flash_act(1, TRUE)
 			if(issilicon(target))
