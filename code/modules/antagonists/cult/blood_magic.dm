@@ -43,9 +43,9 @@
 		limit = MAX_BLOODCHARGE
 	if(length(spells) >= limit)
 		if(rune)
-			to_chat(owner, span_cultitalic("У меня не может быть больше [MAX_BLOODCHARGE] заклинаний. <b>Выберете заклинание для замены.</b>"))
+			to_chat(owner, span_cultitalic("У меня не может быть больше [MAX_BLOODCHARGE] заклинаний. <b>Надо выбрать заклинание для замены.</b>"))
 		else
-			to_chat(owner, span_cultitalic("<b><u>У меня не может быть больше [RUNELESS_MAX_BLOODCHARGE] заклинаний без усиливающей руны! Выберете заклинание для замены.</b></u>"))
+			to_chat(owner, span_cultitalic("<b><u>У меня не может быть больше [RUNELESS_MAX_BLOODCHARGE] заклинаний без усиливающей руны! Надо выбрать заклинание для замены.</b></u>"))
 		var/nullify_spell = tgui_input_list(owner, "Выберете заклинание для замены.", "Доступные заклинания", spells)
 		if(isnull(nullify_spell))
 			return
@@ -84,7 +84,7 @@
 		new_spell.Grant(owner, src)
 		spells += new_spell
 		Positioning()
-		to_chat(owner, span_warning("Мои раны наполняются мощью, горячая кровь омывает мои раны, напитывая [new_spell.name] силой!"))
+		to_chat(owner, span_warning("Горячая кровь омывает мои раны, напитывая [new_spell.name] силой!"))
 	channeling = FALSE
 
 /datum/action/innate/cult/blood_spell //The next generation of talismans, handles storage/creation of blood magic
@@ -201,7 +201,7 @@
 /datum/action/innate/cult/blood_spell/dagger/Activate()
 	var/turf/owner_turf = get_turf(owner)
 	owner.whisper(invocation, language = /datum/language/common)
-	owner.visible_message(span_warning("ука [owner] наполнилась красным светом на мгновение."), \
+	owner.visible_message(span_warning("Рука [owner] наполнилась красным светом на мгновение."), \
 		span_cultitalic("Мои мольбы были услышаны, кровь в моей руке начинает преобретать форму!"))
 	var/obj/item/summoned_blade = new summoned_type(owner_turf)
 	if(owner.put_in_hands(summoned_blade))
@@ -511,7 +511,7 @@
 
 
 /obj/item/restraints/handcuffs/energy/cult //For the shackling spell
-	name = "Теневые оковы"
+	name = "теневые оковы"
 	desc = "Оковы, связывающие жертву с помощью темной магии."
 	trashtype = /obj/item/restraints/handcuffs/energy/used
 	item_flags = DROPDEL
