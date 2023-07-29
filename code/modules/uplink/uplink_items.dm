@@ -1695,9 +1695,9 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	illegal_tech = FALSE
 
 /datum/uplink_item/device_tools/loic_remote
-	name = "Low Orbit Ion Cannon Remote"
-	desc = "The Syndicate has recently installed a remote satellite nearby capable of generating a localized ion storm every 20 minutes. \
-			However, your local authorities will be informed of your general location when it is activated."
+	name = "Пульт управления ионной пушкой LOIC"
+	desc = "Синдикат недавно установил поблизости удаленный спутник, способный генерировать локальную ионную бурю каждые 20 минут. \
+			Однако при его активации местные власти будут проинформированы о вашем общем местонахождении."
 	item = /obj/item/device/loic_remote
 	// TODO: When /datum/corporation/self is pickable for non-AI traitors, add it here.
 	limited_stock = 1 // Might be too annoying if someone had mulitple.

@@ -1,6 +1,6 @@
 /obj/item/device/loic_remote
-	name = "low-orbit ion cannon remote"
-	desc = "A remote control capable of sending a signal to the Syndicate's nearest remote satellite that has an ion cannon."
+	name = "Пульт управления ионной пушкой LOIC"
+	desc = "Пульт дистанционного управления, способный посылать сигнал на ближайший удаленный спутник Синдиката, оснащенный ионной пушкой."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "batterer"
 	w_class = WEIGHT_CLASS_SMALL
@@ -29,28 +29,28 @@
 /obj/item/device/loic_remote/examine(mob/user)
 	. = ..()
 	if(COOLDOWN_FINISHED(src, ion_cooldown))
-		. += "It is ready to fire."
+		. += "Устройство готово к использованию."
 	else
 		var/seconds_left = COOLDOWN_TIMELEFT(src, ion_cooldown)/10
 		var/minutes_left_rounded = round(seconds_left/60, 0.1) // Don't want to deal with "1 minutes".
 		if(minutes_left_rounded > 1)
-			. += "It will be ready to fire in [minutes_left_rounded] minutes."
+			. += "Перезарядка через [minutes_left_rounded] минут."
 		else
-			. += "It will be ready to fire in [seconds_left] seconds."
+			. += "Перезарядка через [seconds_left] секунд."
 
 /obj/item/device/loic_remote/attack_self(mob/user)
 	if(!COOLDOWN_FINISHED(src, ion_cooldown))
-		to_chat(user, span_notice("It is not ready to be used yet."))
+		to_chat(user, span_notice("Устройство ещё не готово."))
 		return
 	if(!is_type_in_list(get_area(src), GLOB.the_station_areas))
-		to_chat(user, span_notice("The remote can't establish a connection. You need to be on the station."))
+		to_chat(user, span_notice("Пульт не может установить соединение. Вам необходимо находиться на станции."))
 		return
 
 	COOLDOWN_START(src, ion_cooldown, recharge_time)
-	to_chat(user, span_notice("[src]'s screen flashes green for a moment."))
+	to_chat(user, span_notice("[src] мигает зеленым светом на мгновение."))
 
 	var/datum/round_event/ion_storm/malicious/ion = new()
 	ion.location_name = get_area_name(src, TRUE)
 
-	message_admins("[key_name_admin(user)] generated an ion law using a LOIC remote.")
-	log_admin("[key_name(user)] generated an ion law using a LOIC remote.")
+	message_admins("[key_name_admin(user)] сгенерировали ионный закон с помощью пульта LOIC.")
+	log_admin("[key_name(user)] сгенерировали ионный закон с помощью пульта LOIC.")

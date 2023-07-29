@@ -47,7 +47,7 @@
 			if(prob(shuffleLawsChance))
 				M.shuffle_laws(list(LAW_INHERENT, LAW_SUPPLIED, LAW_ION))
 
-			log_game("Ion storm changed laws of [key_name(M)] to [english_list(M.laws.get_law_list(TRUE, TRUE))]")
+			log_game("Ионный закон сменил закон [key_name(M)] на [english_list(M.laws.get_law_list(TRUE, TRUE))]")
 			M.post_lawchange()
 
 	if(botEmagChance)
@@ -60,10 +60,10 @@
 
 /datum/round_event/ion_storm/malicious/announce(fake)
 	// Unlike normal ion storm, this always announces.
-	priority_announce("Abnormal ion activity detected. Please check all AI-controlled equipment for errors. Additional data has been downloaded and printed out at all communications consoles.", "Anomaly Alert", ANNOUNCER_IONSTORM)
+	priority_announce("Обнаружена аномальная ионная активность. Пожалуйста, проверьте все оборудование, управляемое ИИ, на наличие ошибок. Дополнительные данные были загружены и распечатаны на всех коммуникационных консолях.", "Аномальная тревога", ANNOUNCER_IONSTORM)
 
-	var/message = "Malicious Interference with standard AI-Subsystems detected. Investigation recommended.<br><br>"
-	message += (location_name ? "Signal traced to <B>[location_name]</B>.<br>" : "Signal untracable.<br>")
+	var/message = "Обнаружено злонамеренное вмешательство в работу стандартных подсистем ИИ. Рекомендуется провести расследование.<br><br>"
+	message += (location_name ? "Сигнал отслеживается до <B>[location_name]</B>.<br>" : "Не получается отследить сигнал.<br>")
 	print_command_report(message, null, FALSE)
 
 
