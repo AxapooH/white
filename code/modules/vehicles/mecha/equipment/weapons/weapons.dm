@@ -69,6 +69,7 @@
 	fire_sound = 'sound/weapons/laser.ogg'
 	harmful = TRUE
 
+
 /obj/item/mecha_parts/mecha_equipment/weapon/energy/disabler
 	equip_cooldown = 8
 	name = "Усмиритель ЭВ-УЛ \"Миротворец\""
@@ -272,6 +273,21 @@
 	projectiles_cache_max = 96
 	harmful = TRUE
 	ammo_type = "incendiary"
+
+/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/bfg
+	name = "Радиоактивная пушка \"Грейз\""
+	desc = "Оружие для боевых экзокостюмов. Стреляет невероятно горячим лучом, окруженным полем плазмы."
+	icon_state = "mecha_laser"
+	equip_cooldown = 2 SECONDS
+	projectile = /obj/projectile/beam/bfg
+	projectiles = 5
+	projectiles_cache = 0
+	projectiles_cache_max = 10
+	harmful = TRUE
+	ammo_type = "bfg"
+	fire_sound = 'sound/weapons/lasercannonfire.ogg'
+
+
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/silenced
 	name = "Тяжелый бесшумный карабин \"Тишина\""
