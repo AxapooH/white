@@ -1,12 +1,6 @@
 /datum/emote/living/carbon
 	mob_type_allowed_typecache = list(/mob/living/carbon)
 
-/datum/emote/living/carbon/airguitar
-	key = "airguitar"
-	ru_name = "гитарить"
-	message = "играет на воздухе и трясет головой, как шимпанзе-сафари."
-	hands_use_check = TRUE
-
 /datum/emote/living/carbon/blink
 	key = "blink"
 	ru_name = "моргнуть"
@@ -166,6 +160,7 @@
 
 /datum/emote/living/carbon/snap
 	key = "snap"
+	ru_name = "щёлкать"
 	key_third_person = "щёлкает"
 	message = "щёлкает пальцами."
 	message_param = "щелкает пальцами в сторону %t."
@@ -177,3 +172,17 @@
 	if(ishuman(user))
 		return pick('sound/misc/fingersnap1.ogg', 'sound/misc/fingersnap2.ogg')
 	return null
+
+/datum/emote/living/carbon/vomit
+	key = "vomit"
+	ru_name = "блевать"
+	message = "блюёт."
+	key_third_person = "блюёт"
+
+/datum/emote/living/carbon/vomit/run_emote(mob/user, params, type_override)
+	. = ..()
+	if (!. || !iscarbon(user))
+		return
+	else
+		var/mob/living/carbon/L = user
+		L.vomit(30, 0, 0, 0, 1, VOMIT_TOXIC, 0, 0, 30)

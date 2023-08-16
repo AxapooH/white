@@ -143,3 +143,54 @@
 		user.put_in_hands(gun)
 	else
 		user.dropItemToGround(src, TRUE)
+
+/obj/item/gun/ballistic/rifle/boltaction/kar98k
+	name = "болтовка"
+	desc = "Настолько старая, что даже порох в патронах успевает быстро устаревать, пока находится в ней."
+	icon_state = "kar98k"
+	base_icon_state = "kar98k"
+	inhand_icon_state = "kar98k"
+	worn_icon_state = "kar98k"
+	mag_type = /obj/item/ammo_box/magazine/internal/boltaction98
+	bolt_wording = "bolt"
+	w_class = WEIGHT_CLASS_BULKY
+	fire_sound = 'sound/weapons/gun/rifle/kar_shot.ogg'
+	fire_sound_volume = 80
+	can_be_sawn_off = FALSE
+	knife_x_offset = 27
+	knife_y_offset = 13
+
+/obj/item/gun/ballistic/rifle/boltaction/kar98k/make_jamming()
+	switch(rand(1, 3))
+		if(1)
+			name = "старая [name]"
+			AddElement(/datum/element/jamming, 10)
+			extra_damage = 90
+		if(2)
+			name = "старая ржавая [name]"
+			AddElement(/datum/element/jamming, 15)
+			extra_damage = 85
+		if(3)
+			name = "старая ржавая погнутая [name]"
+			AddElement(/datum/element/jamming, 25)
+			extra_damage = 80
+
+/obj/item/gun/ballistic/rifle/boltaction/kar98k/update_icon(updates, add_scope = FALSE)
+	. = ..()
+	if (bolt_locked == FALSE)
+		icon_state = "[base_icon_state]_open"
+		inhand_icon_state = "[base_icon_state]_open"
+	else
+		icon_state = "[base_icon_state]"
+		inhand_icon_state = "[base_icon_state]"
+
+/obj/item/gun/ballistic/rifle/boltaction/kar98k/scope
+	name = "болтовка с оптикой"
+	desc = "Настолько старая, что даже порох в патронах успевает быстро устаревать, пока находится в ней. Эта имеет оптический прицел."
+	icon_state = "kar98k_scope"
+	base_icon_state = "kar98k_scope"
+	inhand_icon_state = "kar98k_scope"
+
+/obj/item/gun/ballistic/rifle/boltaction/kar98k/scope/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/scope, range_modifier = 2.5)

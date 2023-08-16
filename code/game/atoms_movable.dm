@@ -87,7 +87,7 @@
 	var/set_dir_on_move = TRUE
 
 	/// The voice that this movable makes when speaking
-	var/voice = "glados"
+	var/voice = null
 	var/last_freq = 0
 
 	/// The degree of thermal insulation that mobs in list/contents have from the external environment, between 0 and 1
@@ -144,6 +144,9 @@
 			AddComponent(/datum/component/overlay_lighting)
 		if(MOVABLE_LIGHT_DIRECTIONAL)
 			AddComponent(/datum/component/overlay_lighting, is_directional = TRUE)
+
+	if(!voice)
+		voice = pick("sentrybot", "glados_alt", "adventure_core_alt", "space_core_alt", "fact_core_alt", "turret_floor")
 
 /atom/movable/Destroy(force)
 	QDEL_NULL(language_holder)
@@ -1376,6 +1379,51 @@
 	. = ..()
 	. += "<option value='?_src_=holder;[HrefToken()];adminplayerobservefollow=[REF(src)]'>Follow</option>"
 	. += "<option value='?_src_=holder;[HrefToken()];admingetmovable=[REF(src)]'>Get</option>"
+
+	VV_DROPDOWN_OPTION(VV_HK_EDIT_PARTICLES, "Edit Particles")
+	VV_DROPDOWN_OPTION(VV_HK_ADD_EMITTER, "Add Emitter")
+	VV_DROPDOWN_OPTION(VV_HK_REMOVE_EMITTER, "Remove Emitter")
+
+/atom/movable/vv_do_topic(list/href_list)
+	. = ..()
+	if(href_list[VV_HK_EDIT_PARTICLES])
+		if(!check_rights(R_VAREDIT))
+			return
+		var/client/interacted_client = usr.client
+		interacted_client?.open_particle_editor(src)
+
+
+	if(href_list[VV_HK_ADD_EMITTER])
+		if(!check_rights(R_VAREDIT))
+			return
+
+		var/key = stripped_input(usr, "Enter a key for your emitter", "Emitter Key")
+		var/lifetime = input("How long should this live for in deciseconds? 0 for infinite, -1 for a single burst.", "Lifespan") as null|num
+
+		if(!key)
+			return
+		switch(alert("Should this be a pre-filled emitter (empty emitters don't support timers)?",,"Yes","No","Cancel"))
+			if("Yes")
+				var/choice = input(usr, "Choose an emitter to add", "Choose an Emitter") as null|anything in subtypesof(/obj/emitter)
+				var/should_burst = FALSE
+				if(lifetime == -1)
+					should_burst = TRUE
+				if(choice)
+					add_emitter(choice, key, lifespan = lifetime, burst_mode = should_burst)
+			if("No")
+				add_emitter(/obj/emitter, key)
+			else
+				return
+
+	if(href_list[VV_HK_REMOVE_EMITTER])
+		if(!check_rights(R_VAREDIT))
+			return
+		if(!master_holder?.emitters.len)
+			return
+		var/removee = input(usr, "Choose an emitter to remove", "Choose an Emitter") as null|anything in master_holder?.emitters
+		if(!removee)
+			return
+		remove_emitter(removee)
 
 /atom/movable/proc/ex_check(ex_id)
 	if(!ex_id)

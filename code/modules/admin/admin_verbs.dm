@@ -64,6 +64,7 @@ GLOBAL_PROTECT(admin_verbs_admin)
 	/client/proc/respawn_character,
 	/client/proc/open_killcounter_counts,
 	/client/proc/secrets,
+	/client/proc/darknesshelper,
 	/datum/admins/proc/open_borgopanel,
 	/datum/admins/proc/view_all_circuits,
 	/datum/admins/proc/paintings_manager,
@@ -235,7 +236,6 @@ GLOBAL_LIST_INIT(admin_verbs_secured, list(
 	/client/proc/get_tacmap_for_test,
 	/client/proc/fuck_pie,
 	/client/proc/fix_air, /*resets air in designated radius to its default atmos composition*/
-	/client/proc/force_evenmaster_rules,
 	/client/proc/reestablish_db_connection, /*reattempt a connection to the database*/
 	/datum/admins/proc/kill_system32,
 	/client/proc/reload_whitelist,

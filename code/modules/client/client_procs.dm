@@ -497,6 +497,10 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	if(!prefs?.iconsent)
 		src << browse(file2text('html/newcomer.html'), "window=newcomer;size=665x525;border=0;can_minimize=0;can_close=0;can_resize=0")
 
+	if(ismob(mob) && !isnewplayer(mob))
+		var/area/A = get_area(mob)
+		A?.play_ambience(src)
+
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_CLIENT_CONNECT, src)
 	fully_created = TRUE
 
@@ -1003,7 +1007,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
  *
  * Handles adding macros for the keys that need it
  * And adding movement keys to the clients movement_keys list
- * At the time of writing this, communication(OOC, Say, IC) require macros
+ * At the time of writing this, communication(OOC, Say, IC, ASAY) require macros
  * Arguments:
  * * direct_prefs - the preference we're going to get keybinds from
  */
@@ -1135,6 +1139,11 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	if(holder)
 		holder.filteriffic = new /datum/filter_editor(in_atom)
 		holder.filteriffic.ui_interact(mob)
+
+/client/proc/open_particle_editor(atom/in_atom)
+	if(holder)
+		holder.particlic = new /datum/particle_editor(in_atom)
+		holder.particlic.ui_interact(mob)
 
 /client/proc/set_right_click_menu_mode(shift_only)
 	if(shift_only)
