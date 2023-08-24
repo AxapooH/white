@@ -231,7 +231,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 			но неизвестно, каких. Содержимое сортируется так, чтобы их общая стоимость всегда была 50 ТК."
 	item = /obj/structure/closet/crate
 	cost = 20
-	player_minimum = 25
+	player_minimum = 5
 	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 	var/starting_crate_value = 50
 
@@ -240,7 +240,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	desc = "Пыльный СУПЕРБОЛЬШОЙ с задней части склада Синдиката. По слухам, в нем содержится ценный ассортимент предметов, \
 			но неизвестно, каких. Содержимое сортируется так, чтобы их общая стоимость всегда была 125 ТК."
 	cost = 40
-	player_minimum = 40
+	player_minimum = 10
 	starting_crate_value = 125
 
 /datum/uplink_item/bundles_tc/surplus/purchase(mob/user, datum/component/uplink/U)
@@ -411,7 +411,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	desc = "Мощный двойной энергетический меч, позволяющий полностью отражать энергетические снаряды обратно в стрелка \
 			и имеет некоторый шанс парировать оружие ближнего боя, однако требует обе руки для использования."
 	item = /obj/item/dualsaber
-	player_minimum = 25
+	player_minimum = 10
 	cost = 16
 	purchasable_from = ~UPLINK_CLOWN_OPS
 
@@ -460,7 +460,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	cost = 18
 	surplus = 0
 	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
-	player_minimum = 25
+	player_minimum = 10
 	restricted = TRUE
 
 /datum/uplink_item/dangerous/machinegun
@@ -599,7 +599,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	desc = "Этот свиток содержит секреты древней техники боевых искусств. Вы овладеете навыками безоружного боя \
 			и обретете способность отражать пули руками, но вы также не сможете использовать дальнобойное оружие."
 	item = /obj/item/book/granter/martial/carp
-	player_minimum = 25
+	player_minimum = 10
 	cost = 20
 	surplus = 0
 	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
@@ -613,7 +613,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	говорить невнятно, как будто опьянели. Он может производить бесконечное количество \
 	болтов, но требует времени для автоматической перезарядки после каждого выстрела."
 	item = /obj/item/gun/energy/kinetic_accelerator/crossbow
-	player_minimum = 25
+	player_minimum = 10
 	cost = 10
 	surplus = 50
 	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
@@ -1277,7 +1277,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	item = /obj/item/clothing/shoes/chameleon/noslip
 	cost = 2
 	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
-	player_minimum = 20
+	player_minimum = 5
 
 /datum/uplink_item/stealthy_tools/syndigaloshes/nuke
 	item = /obj/item/clothing/shoes/chameleon/noslip
@@ -1729,7 +1729,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 			коктейль, который позволяет вам выходить из оглушения. По возможности избегайте больших доз."
 	item = /obj/item/storage/box/syndie_kit/imp_adrenal
 	cost = 8
-	player_minimum = 25
+	player_minimum = 5
 
 /datum/uplink_item/implants/antistun
 	name = "Имплант восстановления ЦНС"
@@ -2254,7 +2254,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	desc = "Ходят слухи, что канадские хоккеисты - сильнейшие существа в мире."
 	item = /obj/item/storage/box/syndie_kit/hockey
 	cost = 41
-	player_minimum = 20
+	player_minimum = 10
 	surplus = 0
 	cant_discount = FALSE
 	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
