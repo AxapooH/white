@@ -1,37 +1,5 @@
 // TODO: перенести это всё в жсон и добавить кэширование
 
-GLOBAL_LIST_INIT(tts_lowfreq, list(
-	"aidar",
-	"baya",
-	"kseniya",
-	"xenia",
-	"eugene",
-	"mykyta",
-	"briman",
-	"kleiner_alt",
-	"father_grigori",
-	"vance",
-	"barni",
-	"gman_alt",
-	"alyx",
-	"mossman",
-	"bandit",
-	"papich_alt",
-	"bebey_alt",
-	"glados_alt",
-	"adventure_core_alt",
-	"barni",
-	"cicero",
-	"cirilla",
-	"fact_core_alt",
-	"kodlakwhitemane",
-	"lambert",
-	"sheogorath",
-	"space_core_alt",
-	"triss",
-	"turret_floor",
-))
-
 GLOBAL_LIST_INIT(tts_voices, list(
 	"aidar" 			 = "Разное: Айдар",
 	"baya" 				 = "Разное: Байя",
@@ -79,6 +47,22 @@ GLOBAL_LIST_INIT(tts_voices, list(
 	"lambert" 			 = "Ведьмак: Ламберт",
 
 	"neco" 				 = "Аниме: Неко",
+	"polina" 		     = "Аниме: Полина",
+	"xrenoid" 		     = "Аниме: Хреноид",
+
+	"arthas" 		     = "Warcraft 3: Артас",
+	"rexxar" 		     = "Warcraft 3: Рексар",
+	"voljin" 		     = "Warcraft 3: Вол'джин",
+	"illidan" 		     = "Warcraft 3: Иллидан",
+
+	"azir" 		     	 = "LoL: Азир",
+	"caitlyn" 		     = "LoL: Кэйтлин",
+	"ekko" 		     	 = "LoL: Экко",
+	"twitch" 		     = "LoL: Твич",
+	"ziggs" 		     = "LoL: Зиггс",
+	"rexxar" 		     = "LoL: Рексар",
+
+	"tracer" 		     = "Overwatch: Трейсер",
 
 	"kleiner" 			 = "HL2: Кляйнер",
 	"gman" 				 = "HL2: G-Man",
@@ -91,7 +75,10 @@ GLOBAL_LIST_INIT(tts_voices, list(
 	"gman_alt" 			 = "HL2: G-Man (Альт.)",
 	"mossman" 			 = "HL2: Джудит Моссман",
 
-	"bandit" 			 = "S.T.A.L.K.E.R: Бандит"
+	"bandit" 			 = "S.T.A.L.K.E.R: Бандит",
+	"sidorovich" 		 = "S.T.A.L.K.E.R: Сидорович",
+	"strelok" 		     = "S.T.A.L.K.E.R: Стрелок",
+	"forester" 		     = "S.T.A.L.K.E.R: Лесник"
 ))
 
 /proc/open_sound_channel_for_tts()

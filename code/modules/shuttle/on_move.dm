@@ -73,12 +73,6 @@ All ShuttleMove procs go here
 		for(var/i in 0 to new_loc.get_missing_shuttles(newT)) //Start at 0 because get_missing_shuttles() will report 1 less missing shuttle because of the CopyOnTop()
 			newT.baseturfs.Insert(inject_index, /turf/baseturf_skipover/shuttle)
 
-	if(isopenturf(src))
-		var/turf/open/after_src_terf = src
-		update_air_ref(isspaceturf(src) ? 0 : (after_src_terf.planetary_atmos ? 1 : 2))
-	else
-		update_air_ref(-1)
-
 	//Air stuff
 	newT.air_update_turf(TRUE)
 	air_update_turf(TRUE)
@@ -286,18 +280,18 @@ All ShuttleMove procs go here
 					break
 
 			if(!connected)
-				nullifyNode(i)
+				nullify_node(i)
 
 		if(!nodes[i])
 			missing_nodes = TRUE
 
 	if(missing_nodes)
-		atmosinit()
+		atmos_init()
 		for(var/obj/machinery/atmospherics/A in pipeline_expansion())
-			A.atmosinit()
-			if(A.returnPipenet())
-				A.addMember(src)
-		build_network()
+			A.atmos_init()
+			if(A.return_pipenet())
+				A.add_member(src)
+		SSair.add_to_rebuild_queue(src)
 	else
 		// atmosinit() calls update_appearance(), so we don't need to call it
 		update_appearance()

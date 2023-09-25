@@ -15,7 +15,8 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 
 	if(turf_type)
 		var/turf/newT = ChangeTurf(turf_type, baseturf_type, flags)
-		CALCULATE_ADJACENT_TURFS(newT)
+		SSair.remove_from_active(newT)
+		CALCULATE_ADJACENT_TURFS(newT, KILL_EXCITED)
 
 /turf/proc/copyTurf(turf/T)
 	if(T.type != type)
@@ -202,12 +203,12 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 			return
 		var/turf/open/newTurf = .
 		newTurf.air.copy_from(stashed_air)
-		update_air_ref(planetary_atmos ? 1 : 2)
 		QDEL_NULL(stashed_air)
 	else
+		if(excited || excited_group)
+			SSair.remove_from_active(src) //Clean up wall excitement, and refresh excited groups
 		if(ispath(path, /turf/closed) || ispath(path, /turf/cordon))
 			flags |= CHANGETURF_RECALC_ADJACENT
-			update_air_ref(-1)
 			. = ..()
 		else
 			. = ..()
@@ -340,9 +341,9 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 /turf/proc/AfterChange(flags) //called after a turf has been replaced in ChangeTurf()
 	levelupdate()
 	if(flags & CHANGETURF_RECALC_ADJACENT)
-		ImmediateCalculateAdjacentTurfs()
+		immediate_calculate_adjacent_turfs()
 	else
-		CALCULATE_ADJACENT_TURFS(src)
+		CALCULATE_ADJACENT_TURFS(src, KILL_EXCITED)
 
 /turf/open/AfterChange(flags)
 	..()
@@ -357,6 +358,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 		return
 
 	var/datum/gas_mixture/total = new//Holders to assimilate air from nearby turfs
+	var/list/turf_list = atmos_adjacent_turfs + src
 
 	for(var/T in atmos_adjacent_turfs)
 		var/turf/open/S = T
@@ -365,6 +367,11 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 		total.merge(S.air)
 
 	air.copy_from(total.remove_ratio(1/turf_count))
+
+	for(var/turf/open/turf in turf_list)
+		turf.air.copy_from(total)
+		turf.update_visuals()
+		SSair.add_to_active(turf)
 
 /turf/proc/ReplaceWithLattice()
 	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
